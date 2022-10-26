@@ -10,18 +10,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-      - run: docker build -t vishal1201/react-test -f ./client/Dockerfile.dev ./client
-      - run: docker run -e CI=true vishal1201/react-test npm test
+      - run: docker build -t vzambare/react-test -f ./client/Dockerfile.dev ./client
+      - run: docker run -e CI=true vzambare/react-test npm test
  
-      - run: docker build -t vishal1201/multi-client ./client
-      - run: docker build -t vishal1201/multi-nginx ./nginx
-      - run: docker build -t vishal1201/multi-server ./server
-      - run: docker build -t vishal1201/multi-worker ./worker
+      - run: docker build -t vzambare/multi-client ./client
+      - run: docker build -t vzambare/multi-nginx ./nginx
+      - run: docker build -t vzambare/multi-server ./server
+      - run: docker build -t vzambare/multi-worker ./worker
  
-      - run: docker push vishal1201/multi-client
-      - run: docker push vishal1201/multi-nginx
-      - run: docker push vishal1201/multi-server
-      - run: docker push vishal1201/multi-worker
+      - run: docker push vzambare/multi-client
+      - run: docker push vzambare/multi-nginx
+      - run: docker push vzambare/multi-server
+      - run: docker push vzambare/multi-worker
  
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
