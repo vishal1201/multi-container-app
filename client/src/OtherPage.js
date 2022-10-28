@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default OtherPage => function() {
+export default () => {
   return (
     <div>
       Im some other page!
